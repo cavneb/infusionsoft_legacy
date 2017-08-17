@@ -1,10 +1,8 @@
-# InfusionsoftLegacy
+# Unofficial Infusionsoft API Ruby Wrapper
 
 <a href="https://app.codesponsor.io/link/Z24Ypyn8iC1Q4i6uCwNyLW3r/cavneb/infusionsoft_legacy" rel="nofollow"><img src="https://app.codesponsor.io/embed/Z24Ypyn8iC1Q4i6uCwNyLW3r/cavneb/infusionsoft_legacy.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/infusionsoft_legacy`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Allows for usage of the Infusionsoft XML-RPC API using Ruby's XML-RPC library. Find more info at http://help.infusionsoft.com/developers/api-basics/
 
 ## Installation
 
@@ -24,7 +22,116 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Each example below requires initializing a new InfusionsoftLegacy client
+
+```ruby
+infusionsoft = InfusionsoftLegacy.new("Infusionsoft Account Name", "API Key Goes Here")
+```
+
+##### Add Contact
+
+```ruby
+contact = { FirstName: "John", LastName: "Doe", Email: "johndoe@email.com" }
+infusionsoft.ContactService("add", contact)
+# => ...
+```
+
+##### Merge two duplicate contacts
+
+```ruby
+contact_id           = 56
+duplicate_contact_id = 57
+infusionsoft.ContactService("merge", contact_id, duplicate_contact_id)
+# => ...
+```
+
+##### Query a contact using data service
+
+```ruby
+table         = "Contact"
+return_fields = ["Id", "FirstName"]
+query         = { FirstName: "John" }
+limit         = 10
+page          = 0
+infusionsoft.DataService("query", table, limit, page, query, return_fields)
+# => ...
+```
+
+##### Return a products inventory using product service
+
+```ruby
+product_id = 1
+infusionsoft.ProductService("getInventory", product_id)
+```
+
+##### Charge an invoice using the invoice service
+
+```ruby
+invoice_id          = 16
+notes               = "API Upsell Payment"
+credit_card_id      = 2
+merchant_account_id = 1
+bypass_commissions = false
+infusionsoft.InvoiceService("chargeInvoice", invoice_id, notes, credit_card_id, merchant_account_id, bypass_commissions)
+```
+
+##### Send an email using the email service
+
+```ruby
+contact_list = [123, 456, 789]
+from_address = "john@test.com"
+to_address   = "~Contact.Email~"
+cc_address   = ""
+bcc_address  = ""
+content_type = "Text"
+subject      = "This is just a test email, relax!"
+html_body    = ""
+text_body    = "This is the contant for the email"
+infusionsoft.APIEmailService("sendEmail", contact_list, from_address, to_address, cc_address, bcc_address, content_type, subject, html_body, text_body)
+# => ...
+```
+
+##### Get all report columns using the search service
+
+```ruby
+saved_search_id = 3
+user_id         = 1
+infusionsoft.SearchService("getAllReportColumns", savedSearchId, userId)
+# => ...
+```
+
+##### Get all shipping options with the shipping service
+
+```ruby
+infusionsoft.ShippingService("getAllShippingOptions")
+# => ...
+```
+
+##### Get affiliate payouts info using filter with the affiliate service
+
+```ruby
+from datetime import datetime
+affiliateId = 2
+filterStartDate = datetime(2012, 10, 18)
+filterEndDate = datetime(2012, 10, 23)
+print(infusionsoft.APIAffiliateService('affPayouts', affiliateId, filterStartDate, filterEndDate))
+```
+
+##### Get the download URL of a particular file
+
+```ruby
+file_id = 23
+infusionsoft.FileService("getDownloadUrl", file_id)
+# => ...
+```
+
+##### Using the library server method to access the API : Create a contact
+
+```ruby
+contact = { FirstName: "John", LastName: "Doe", Email: "johndoe@email.com" }
+infusionsoft.server.ContactService.add(infusionsoft.key, contact)
+# => ...
+```
 
 ## Development
 
@@ -34,7 +141,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/infusionsoft_legacy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/cavneb/infusionsoft_legacy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -42,4 +149,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the InfusionsoftLegacy project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/infusionsoft_legacy/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the InfusionsoftLegacy project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/cavneb/infusionsoft_legacy/blob/master/CODE_OF_CONDUCT.md).
