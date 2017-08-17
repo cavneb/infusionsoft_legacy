@@ -1,5 +1,7 @@
 # InfusionsoftLegacy
 
+<a href="https://app.codesponsor.io/link/Z24Ypyn8iC1Q4i6uCwNyLW3r/cavneb/infusionsoft_legacy" rel="nofollow"><img src="https://app.codesponsor.io/embed/Z24Ypyn8iC1Q4i6uCwNyLW3r/cavneb/infusionsoft_legacy.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/infusionsoft_legacy`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
