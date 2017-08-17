@@ -72,7 +72,8 @@ notes               = "API Upsell Payment"
 credit_card_id      = 2
 merchant_account_id = 1
 bypass_commissions = false
-infusionsoft.InvoiceService("chargeInvoice", invoice_id, notes, credit_card_id, merchant_account_id, bypass_commissions)
+infusionsoft.InvoiceService("chargeInvoice", invoice_id, notes, credit_card_id,
+                                             merchant_account_id, bypass_commissions)
 ```
 
 ##### Send an email using the email service
@@ -87,7 +88,9 @@ content_type = "Text"
 subject      = "This is just a test email, relax!"
 html_body    = ""
 text_body    = "This is the contant for the email"
-infusionsoft.APIEmailService("sendEmail", contact_list, from_address, to_address, cc_address, bcc_address, content_type, subject, html_body, text_body)
+infusionsoft.APIEmailService("sendEmail", contact_list, from_address, to_address,
+                                          cc_address, bcc_address, content_type,
+                                          subject, html_body, text_body)
 # => ...
 ```
 
