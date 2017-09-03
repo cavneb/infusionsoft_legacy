@@ -1,6 +1,6 @@
 # Unofficial Infusionsoft API Ruby Wrapper
 
-<a href="https://app.codesponsor.io/link/Z24Ypyn8iC1Q4i6uCwNyLW3r/cavneb/infusionsoft_legacy" rel="nofollow"><img src="https://app.codesponsor.io/embed/Z24Ypyn8iC1Q4i6uCwNyLW3r/cavneb/infusionsoft_legacy.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
+[![Sponsor](http://cavneb.ngrok.io/embed/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/docker-graphite-statsd.svg)](https://app.codesponsor.io/link/Z24Ypyn8iC1Q4i6uCwNyLW3r/cavneb/infusionsoft_legacy)
 
 Allows for usage of the Infusionsoft XML-RPC API using Ruby's XML-RPC library. Find more info at http://help.infusionsoft.com/developers/api-basics/
 
